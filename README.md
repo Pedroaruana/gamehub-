@@ -28,6 +28,9 @@ Está deployado e funcionando: frontend no Vercel, backend no Hugging Face Space
 - Adicionar ao carrinho e finalizar a compra
 - Escolher forma de pagamento (Pix, cartão, PayPal, etc.)
 - Acompanhar os pedidos com status colorido
+- Editar perfil (nome, telefone, CPF) e trocar senha
+- Ver histórico de pedidos e saldo de cashback direto no perfil
+- Comprar gift cards de Xbox, PSN, Steam, Play Store e Apple
 
 ---
 
@@ -35,7 +38,7 @@ Está deployado e funcionando: frontend no Vercel, backend no Hugging Face Space
 
 **Frontend:** HTML, CSS e JavaScript puro — sem framework, quis entender o DOM de verdade. Three.js pra cena 3D na tela de login.
 
-**Backend:** Python com FastAPI. Aprendi bastante sobre validação de dados com Pydantic e como proteger uma API com JWT.
+**Backend:** Python com FastAPI. Aprendi bastante sobre validação de dados com Pydantic e como proteger uma API com JWT. Testes automatizados com pytest cobrindo validação e o fluxo de checkout.
 
 **Banco:** Supabase (PostgreSQL). Row Level Security ativado em todas as tabelas — cada usuário só acessa os próprios dados.
 
@@ -53,6 +56,9 @@ gamehub/
 │   ├── detalhes.html     → página do jogo
 │   ├── checkout.html     → finalização de compra
 │   ├── sucesso.html      → confirmação do pedido
+│   ├── perfil.html       → perfil do usuário (conta, pedidos, carteira)
+│   ├── termos.html       → termos de uso
+│   ├── privacidade.html  → política de privacidade
 │   ├── 404.html          → página de erro
 │   ├── style.css         → estilos globais
 │   ├── script.js         → lógica principal
@@ -61,6 +67,7 @@ gamehub/
 │   └── supabaseClient.js → conexão com o banco
 ├── backend/
 │   ├── main.py           → API FastAPI (checkout, auth)
+│   ├── tests/            → testes automatizados (pytest)
 │   ├── requirements.txt
 │   └── Dockerfile        → container para deploy no Hugging Face
 └── README.md
@@ -95,6 +102,8 @@ A animação 3D da tela de login foi desafiadora. Nunca tinha mexido com Three.j
 Teve também um padrão chato que se repetiu algumas vezes: eu adicionava uma funcionalidade nova e quebrava algo que já tava funcionando. Aprender a testar melhor antes de subir virou um hábito a partir daí.
 
 E as políticas de RLS do Supabase no começo eram confusas pra mim. Entender a diferença entre política de leitura e escrita, e como o `user_id` precisava bater com o usuário autenticado, levou um tempo até ficar claro.
+
+O plano free do Supabase também pausa o projeto depois de alguns dias sem uso, o que já derrubou o banco mais de uma vez sem eu perceber. Configurei um monitor externo pra manter o projeto ativo e evitar isso.
 
 ---
 
