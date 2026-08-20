@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Privacidade – GameHub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+
+    body {
+      background: #0b0b0d;
+      color: #e4e4e7;
+      scroll-behavior: smooth;
+    }
+
+    a { color: inherit; }
+
+    /* TOPBAR */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 32px;
+      background: rgba(11, 11, 13, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #1c1c20;
+    }
+
+    .topbar-logo {
+      font-weight: 800;
+      font-size: 17px;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .topbar-back {
+      font-size: 13px;
+      color: #999;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border: 1px solid #2a2a2f;
+      border-radius: 8px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .topbar-back:hover {
+      border-color: #00ff9c55;
+      color: #00ff9c;
+    }
+
+    /* HERO */
+    .doc-hero {
+      padding: 64px 32px 48px;
+      max-width: 920px;
+      margin: 0 auto;
+      border-bottom: 1px solid #1c1c20;
+    }
+
+    .doc-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #3b9fff;
+      background: #3b9fff14;
+      border: 1px solid #3b9fff33;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    .doc-hero h1 {
+      font-size: clamp(32px, 5vw, 46px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+    }
+
+    .doc-hero p {
+      font-size: 15px;
+      color: #999;
+      line-height: 1.7;
+      max-width: 620px;
+    }
+
+    .doc-updated {
+      margin-top: 24px;
+      font-size: 12px;
+      color: #666;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .doc-updated span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #3b9fff;
+      display: inline-block;
+    }
+
+    /* LAYOUT */
+    .doc-wrap {
+      max-width: 920px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 56px;
+      padding: 48px 32px 100px;
+      align-items: start;
+    }
+
+    .doc-nav {
+      position: sticky;
+      top: 90px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .doc-nav-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 12px;
+    }
+
+    .doc-nav a {
+      font-size: 13px;
+      color: #888;
+      text-decoration: none;
+      padding: 9px 12px;
+      border-radius: 8px;
+      border-left: 2px solid transparent;
+      transition: color 0.2s, background 0.2s, border-color 0.2s;
+    }
+
+    .doc-nav a:hover {
+      color: #ddd;
+      background: #ffffff08;
+    }
+
+    .doc-nav a.active {
+      color: #3b9fff;
+      border-left-color: #3b9fff;
+      background: #3b9fff0d;
+    }
+
+    /* CONTENT */
+    .doc-content {
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
+      min-width: 0;
+    }
+
+    .doc-section {
+      scroll-margin-top: 90px;
+    }
+
+    .doc-section-head {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .doc-num {
+      font-size: 13px;
+      font-weight: 700;
+      color: #3b9fff;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .doc-section h2 {
+      font-size: 21px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .doc-section p {
+      font-size: 14.5px;
+      line-height: 1.8;
+      color: #b4b4ba;
+      margin-bottom: 14px;
+    }
+
+    .doc-section p:last-child { margin-bottom: 0; }
+
+    .doc-section ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 16px 0;
+    }
+
+    .doc-section li {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #b4b4ba;
+      padding-left: 22px;
+      position: relative;
+    }
+
+    .doc-section li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 6px;
+      height: 6px;
+      border-radius: 2px;
+      background: #3b9fff;
+      transform: rotate(45deg);
+    }
+
+    strong { color: #eee; font-weight: 600; }
+
+    .callout {
+      background: #131316;
+      border: 1px solid #232328;
+      border-left: 3px solid #3b9fff;
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-top: 18px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .callout-icon { font-size: 18px; line-height: 1; margin-top: 1px; }
+
+    .callout p {
+      font-size: 13.5px;
+      color: #9a9aa2;
+      margin: 0;
+    }
+
+    /* DATA TABLE */
+    .data-table {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .data-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 16px;
+      padding: 14px 16px;
+      background: #131316;
+      border: 1px solid #202024;
+      border-radius: 10px;
+      align-items: start;
+    }
+
+    .data-row-label {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #3b9fff;
+    }
+
+    .data-row-value {
+      font-size: 13.5px;
+      color: #a8a8b0;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 560px) {
+      .data-row { grid-template-columns: 1fr; gap: 4px; }
+    }
+
+    /* FOOTER */
+    .doc-footer {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 32px;
+      border-top: 1px solid #1c1c20;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .doc-footer-text {
+      font-size: 12px;
+      color: #555;
+    }
+
+    .doc-footer a {
+      font-size: 12px;
+      color: #666;
+      text-decoration: none;
+    }
+
+    .doc-footer a:hover { color: #3b9fff; }
+
+    @media (max-width: 760px) {
+      .doc-wrap { grid-template-columns: 1fr; }
+      .doc-nav {
+        position: static;
+        flex-direction: row;
+        overflow-x: auto;
+        border-bottom: 1px solid #1c1c20;
+        padding-bottom: 16px;
+        margin-bottom: 8px;
+      }
+      .doc-nav a { white-space: nowrap; border-left: none; border-bottom: 2px solid transparent; }
+      .doc-nav a.active { border-left: none; border-bottom-color: #3b9fff; }
+      .doc-nav-label { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <a href="index.html" class="topbar-logo">🎮 GAMEHUB</a>
+    <a href="index.html" class="topbar-back">← Voltar para a loja</a>
+  </div>
+
+  <div class="doc-hero">
+    <div class="doc-kicker">🔒 Privacidade</div>
+    <h1>Política de Privacidade</h1>
+    <p>Transparência total sobre quais dados o GameHub coleta, onde ficam armazenados e como você pode controlá-los.</p>
+    <div class="doc-updated"><span></span> Última atualização: 13 de agosto de 2026</div>
+  </div>
+
+  <div class="doc-wrap">
+    <nav class="doc-nav" id="docNav">
+      <div class="doc-nav-label">Neste documento</div>
+      <a href="#coleta">O que coletamos</a>
+      <a href="#uso">Como usamos</a>
+      <a href="#armazenamento">Onde fica armazenado</a>
+      <a href="#cookies">Cookies e armazenamento local</a>
+      <a href="#terceiros">Compartilhamento com terceiros</a>
+      <a href="#direitos">Seus direitos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+
+    <div class="doc-content">
+
+      <section class="doc-section" id="coleta">
+        <div class="doc-section-head">
+          <span class="doc-num">01</span>
+          <h2>O que coletamos</h2>
+        </div>
+        <p>Coletamos apenas os dados necessários para o funcionamento da plataforma — nada além disso, e nada é vendido ou usado para publicidade.</p>
+        <div class="data-table">
+          <div class="data-row">
+            <div class="data-row-label">Conta</div>
+            <div class="data-row-value">E-mail e senha (criptografada), usados para login e autenticação.</div>
+          </div>
+          <div class="data-row">
+            <div class="data-row-label">Perfil</div>
+            <div class="data-row-value">Nome, telefone e CPF — opcionais, preenchidos por você na página de perfil.</div>
+          </div>
+          <div class="data-row">
+            <div class="data-row-label">Atividade</div>
+            <div class="data-row-value">Favoritos, itens do carrinho e histórico de pedidos vinculados à sua conta.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section" id="uso">
+        <div class="doc-section-head">
+          <span class="doc-num">02</span>
+          <h2>Como usamos seus dados</h2>
+        </div>
+        <p>Seus dados são usados exclusivamente para fazer a plataforma funcionar:</p>
+        <ul>
+          <li>Autenticar seu login e manter sua sessão ativa.</li>
+          <li>Exibir seu nome e avatar no cabeçalho e na página de perfil.</li>
+          <li>Registrar pedidos e permitir que você acompanhe seu histórico de compras.</li>
+          <li>Manter sua lista de favoritos e carrinho salvos entre sessões.</li>
+        </ul>
+      </section>
+
+      <section class="doc-section" id="armazenamento">
+        <div class="doc-section-head">
+          <span class="doc-num">03</span>
+          <h2>Onde seus dados ficam armazenados</h2>
+        </div>
+        <p>Todos os dados são armazenados no <strong>Supabase</strong>, um banco de dados PostgreSQL com políticas de <strong>Row Level Security (RLS)</strong> ativadas em todas as tabelas — isso significa que, no nível do banco, cada usuário só consegue acessar os próprios dados, mesmo que exista uma falha na aplicação.</p>
+        <div class="callout">
+          <div class="callout-icon">🛡️</div>
+          <p>Sua senha nunca é armazenada em texto puro. A autenticação é gerenciada pelo Supabase Auth, que aplica hashing e boas práticas de segurança por padrão.</p>
+        </div>
+      </section>
+
+      <section class="doc-section" id="cookies">
+        <div class="doc-section-head">
+          <span class="doc-num">04</span>
+          <h2>Cookies e armazenamento local</h2>
+        </div>
+        <p>O GameHub usa o <strong>localStorage</strong> do navegador para guardar informações temporárias, como o jogo selecionado ao navegar entre páginas. Nenhum cookie de rastreamento ou publicidade é utilizado.</p>
+        <p>O token de sessão do Supabase também é mantido localmente no navegador para manter você logado entre visitas.</p>
+      </section>
+
+      <section class="doc-section" id="terceiros">
+        <div class="doc-section-head">
+          <span class="doc-num">05</span>
+          <h2>Compartilhamento com terceiros</h2>
+        </div>
+        <p>O GameHub <strong>não compartilha, vende ou aluga</strong> seus dados pessoais para nenhum terceiro. Os únicos serviços externos envolvidos são de infraestrutura:</p>
+        <ul>
+          <li><strong>Supabase</strong> — banco de dados e autenticação.</li>
+          <li><strong>Vercel</strong> — hospedagem do frontend.</li>
+          <li><strong>Hugging Face Spaces</strong> — hospedagem da API backend.</li>
+        </ul>
+      </section>
+
+      <section class="doc-section" id="direitos">
+        <div class="doc-section-head">
+          <span class="doc-num">06</span>
+          <h2>Seus direitos</h2>
+        </div>
+        <p>Você tem controle total sobre seus dados a qualquer momento:</p>
+        <ul>
+          <li>Editar nome, telefone e CPF diretamente na aba <strong>Minha Conta</strong> do seu perfil.</li>
+          <li>Trocar sua senha quando quiser, sem precisar de aprovação.</li>
+          <li>Solicitar a exclusão da sua conta e de todos os dados associados entrando em contato pelo suporte.</li>
+        </ul>
+      </section>
+
+      <section class="doc-section" id="contato">
+        <div class="doc-section-head">
+          <span class="doc-num">07</span>
+          <h2>Contato</h2>
+        </div>
+        <p>Dúvidas sobre esta política ou solicitações relacionadas aos seus dados podem ser enviadas através do <a href="index.html" style="color:#3b9fff;text-decoration:underline;">chat de suporte</a> disponível no canto da tela, ou pelo repositório do projeto no GitHub.</p>
+      </section>
+
+    </div>
+  </div>
+
+  <div class="doc-footer">
+    <div class="doc-footer-text">© 2026 GameHub — Projeto de portfólio</div>
+    <a href="termos.html">Termos de Uso →</a>
+  </div>
+
+  <script>
+    const links = document.querySelectorAll('.doc-nav a');
+    const sections = document.querySelectorAll('.doc-section');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          links.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.doc-nav a[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+</body>
+</html>
